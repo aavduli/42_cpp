@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:33:38 by aavduli           #+#    #+#             */
-/*   Updated: 2024/11/20 16:28:35 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/11/25 15:01:50 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ std::string Contact::getField(const std::string &field) const {
 	if (field == "firstName") return firstName;
 	if (field == "lastName") return lastName;
 	if (field == "nickname") return nickname;
+	return ("");
 }
 
 void Contact::displayFullContact() const {

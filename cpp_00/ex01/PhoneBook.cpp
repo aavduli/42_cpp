@@ -6,14 +6,15 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:34:07 by aavduli           #+#    #+#             */
-/*   Updated: 2024/11/25 14:52:34 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/11/25 15:09:20 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iomanip>
+#include <stdio.h>
 
-PhoneBook::PhoneBook() : contactCount(8) {}
+PhoneBook::PhoneBook() : contactCount(0) {}
 
 void PhoneBook::addContact() {
 	if (contactCount >= 8) {
