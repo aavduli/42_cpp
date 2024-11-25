@@ -6,11 +6,20 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:33:38 by aavduli           #+#    #+#             */
-/*   Updated: 2024/11/25 15:01:50 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/11/25 15:19:11 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+bool isNumber(const std::string &str) {
+	for (size_t i = 0; i < str.length(); i++) {
+		if (!isdigit(str[i])) {
+			return false;
+		}
+	}
+	return true;
+}
 
 void	Contact::setContact() {
 	std::cout << "First Name: ";
@@ -19,8 +28,13 @@ void	Contact::setContact() {
 	std::getline(std::cin, lastName);
 	std::cout << "Nickname: ";
 	std::getline(std::cin, nickname);
-	std::cout << "Phone Number: ";
-	std::getline(std::cin, phoneNumber);
+	do {
+		std::cout << "Phone Number: ";
+		std::getline(std::cin, phoneNumber);
+		if (!isNumber(phoneNumber)) {
+			std::cout << "invalid phone number. Please enter digit Only." << std::endl;
+		}
+	} while (!isNumber(phoneNumber));
 	std::cout << "Darkest Secret: ";
 	std::getline(std::cin, darkestSecret);
 }
