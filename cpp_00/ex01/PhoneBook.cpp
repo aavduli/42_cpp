@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:34:07 by aavduli           #+#    #+#             */
-/*   Updated: 2024/11/25 15:09:20 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/11/27 14:24:28 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,20 @@ void PhoneBook::addContact() {
 	contacts[contactCount % 8].setContact();
 	contactCount++;
 }
+std::string truncateField(const std::string &field) {
+	if (field.length() > 10)
+		return (field.substr(0, 9) + ".");
+	return (field);
+}
 
 void PhoneBook::searchContact () const {
 	std::cout << "| INDEX | FIRST NAME | LAST NAME | NICKNAME" << std::endl;
 	for (int i = 0; i < std::min(contactCount, 8); i++) {
 		std::cout << "|"
 			<< std::setw(10) << i  + 1 << "|"
-			<< std::setw(10) << contacts[i].getField("firstName").substr(0, 10) << "|"
-			<< std::setw(10) << contacts[i].getField("lastName").substr(0, 10) << "|"
-			<< std::setw(10) << contacts[i].getField("nickname").substr(0, 10) << "|"
+			<< std::setw(10) << truncateField(contacts[i].getField("firstName")) << "|"
+			<< std::setw(10) << truncateField(contacts[i].getField("lastName")) << "|"
+			<< std::setw(10) << truncateField(contacts[i].getField("nickname")) << "|"
 			<< std::endl;
 	}
 	std::cout << "Index :";
