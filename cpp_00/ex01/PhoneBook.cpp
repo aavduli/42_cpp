@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:34:07 by aavduli           #+#    #+#             */
-/*   Updated: 2024/11/27 14:26:09 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/11/28 16:30:25 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ std::string truncateField(const std::string &field) {
 }
 
 void PhoneBook::searchContact () const {
-	std::cout << "| INDEX | FIRST NAME | LAST NAME | NICKNAME" << std::endl;
+	std::cout << "|  INDEX  | FIRST NAME | LAST NAME | NICKNAME" << std::endl;
 	for (int i = 0; i < std::min(contactCount, 8); i++) {
 		std::cout << "|"
 			<< std::setw(10) << i  + 1 << "|"
@@ -43,6 +43,10 @@ void PhoneBook::searchContact () const {
 	std::cout << "Index :";
 	int index;
 	std::cin >> index;
+	if (std::cin.fail()) {
+		std::cin.clear();
+		std::cin.ignore();
+	}
 	if (index > 0 && index <= std::min(contactCount, 8)) {
 		contacts[index -1].displayFullContact();
 	}

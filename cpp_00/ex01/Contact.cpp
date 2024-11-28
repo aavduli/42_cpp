@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:33:38 by aavduli           #+#    #+#             */
-/*   Updated: 2024/11/25 15:19:11 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/11/28 16:49:03 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,38 @@ bool isNumber(const std::string &str) {
 }
 
 void	Contact::setContact() {
-	std::cout << "First Name: ";
-	std::getline(std::cin, firstName);
-	std::cout << "Last Name: ";
-	std::getline(std::cin, lastName);
-	std::cout << "Nickname: ";
-	std::getline(std::cin, nickname);
+	do {
+		std::cout << "First Name: ";
+		std::getline(std::cin, firstName);
+	if (firstName.empty())
+		std::cout << "First Name cannot be empty." << std::endl;
+	} while (firstName.empty());
+	do {
+		std::cout << "Last Name: ";
+		std::getline(std::cin, lastName);
+		if (lastName.empty())
+			std::cout << "Last Name cannot be empty." << std::endl;
+	} while (lastName.empty());
+	do {
+		std::cout << "Nickname: ";
+		std::getline(std::cin, nickname);
+		if (nickname.empty())
+			std::cout << "Please, choose a Nickname. It will be fun." << std::endl;
+	} while (nickname.empty());
 	do {
 		std::cout << "Phone Number: ";
 		std::getline(std::cin, phoneNumber);
-		if (!isNumber(phoneNumber)) {
+		if (!isNumber(phoneNumber))
 			std::cout << "invalid phone number. Please enter digit Only." << std::endl;
-		}
-	} while (!isNumber(phoneNumber));
-	std::cout << "Darkest Secret: ";
-	std::getline(std::cin, darkestSecret);
+		if (phoneNumber.empty())
+			std::cout << "Phone number cannot be empty." << std::endl;
+	} while (!isNumber(phoneNumber) || phoneNumber.empty());
+	do {
+		std::cout << "Darkest Secret: ";
+		std::getline(std::cin, darkestSecret);
+		if (darkestSecret.empty())
+			std::cout << "Please tell me your secret, it will stay between us." << std::endl;
+	} while (darkestSecret.empty());
 }
 
 std::string Contact::getField(const std::string &field) const {
