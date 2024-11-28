@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:34:07 by aavduli           #+#    #+#             */
-/*   Updated: 2024/11/27 14:24:28 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/11/27 14:26:09 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void PhoneBook::addContact() {
 	contacts[contactCount % 8].setContact();
 	contactCount++;
 }
+
 std::string truncateField(const std::string &field) {
 	if (field.length() > 10)
 		return (field.substr(0, 9) + ".");
