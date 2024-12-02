@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:16:40 by aavduli           #+#    #+#             */
-/*   Updated: 2024/11/28 14:34:03 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/12/02 16:21:46 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 
 int	main() {
 	
-	Zombie zombie1("Floriano");
-	zombie1.announce();
-	
-	Zombie zombie2("Avdul");
-	zombie2.announce();
+	std::cout << "testing class" << std::endl;
+	Zombie Zmb1("Courage");
+	Zmb1.announce();
+
+	std::cout << "testing heap" << std::endl;
+	Zombie *Zmb2 = newZombie("Froussard");
+	Zmb2->announce();
+	delete(Zmb2);
+
+	std::cout << "testing stack" << std::endl;
+	randomChump("Le chien");
+
+	return 0;
 }

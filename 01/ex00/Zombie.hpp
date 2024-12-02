@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:17:04 by aavduli           #+#    #+#             */
-/*   Updated: 2024/11/28 14:35:03 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/12/02 16:08:15 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ class Zombie {
 	void announce (void);
 };
 
+Zombie randomChump(std::string name);
+Zombie *newZombie(std::string name);
 
 #endif
