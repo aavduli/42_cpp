@@ -6,12 +6,12 @@
 #    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 14:34:05 by aavduli           #+#    #+#              #
-#    Updated: 2024/11/25 15:01:14 by aavduli          ###   ########.fr        #
+#    Updated: 2024/12/02 15:59:56 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PhoneBook
-CXX = clang++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = Contact.cpp main.cpp PhoneBook.cpp
 OBJS = $(SRCS:.cpp=.o)

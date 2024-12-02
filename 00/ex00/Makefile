@@ -6,12 +6,12 @@
 #    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 15:54:45 by aavduli           #+#    #+#              #
-#    Updated: 2024/11/28 13:16:11 by aavduli          ###   ########.fr        #
+#    Updated: 2024/12/02 16:00:02 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
-CXX = clang++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = Megaphone.cpp
 OBJS = $(SRCS:.cpp=.o)

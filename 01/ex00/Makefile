@@ -6,12 +6,12 @@
 #    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 14:16:32 by aavduli           #+#    #+#              #
-#    Updated: 2024/11/28 14:35:49 by aavduli          ###   ########.fr        #
+#    Updated: 2024/12/02 15:59:51 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Zombie
-CXX = clang++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = Zombie.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
