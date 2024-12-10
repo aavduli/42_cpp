@@ -5,21 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 13:32:18 by aavduli           #+#    #+#             */
-/*   Updated: 2024/12/09 15:18:38 by aavduli          ###   ########.fr       */
+/*   Created: 2024/12/10 15:45:42 by aavduli           #+#    #+#             */
+/*   Updated: 2024/12/10 15:45:44 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
+
+# include <iostream>
+# include <string>
+# include "Weapon.hpp"
 
 class HumanB {
 	private: 
 		std::string name;
-		Weapon &weapon;
+		Weapon *weapon;
 	public:
-		HumanB(std::string name, Weapon &weapon);
+		HumanB(const std::string &name);
 		~HumanB();
-		void attack();
-		void setName(std::string name);
-		std::string getName();
+		void setWeapon(Weapon &weapon);
+		void attack() const;
+		void setName(const std::string &newName);
+		std::string getName() const;
 };
+
+#endif

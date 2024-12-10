@@ -6,14 +6,14 @@
 #    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 13:29:17 by aavduli           #+#    #+#              #
-#    Updated: 2024/12/09 13:29:30 by aavduli          ###   ########.fr        #
+#    Updated: 2024/12/10 15:45:22 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Weapon
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp
+SRCS = main.cpp HumanA.cpp  Weapon.cpp HumanB.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
