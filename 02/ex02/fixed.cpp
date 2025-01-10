@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:34:24 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/09 18:13:36 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/10 15:58:57 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,25 +63,25 @@ std::ostream &operator<<(std::ostream &out, const Fixed &fixed) {
 	return out;
 }
 
-Fixed Fixed::operator+(const Fixed &rhs) {
+Fixed Fixed::operator+(const Fixed &rhs) const{
 	Fixed result;
 	result.setRawBits(this->_fixedPointValue + rhs._fixedPointValue);
 	return result;
 }
 
-Fixed Fixed::operator-(const Fixed &rhs) {
+Fixed Fixed::operator-(const Fixed &rhs) const{
 	Fixed result;
 	result.setRawBits(this->_fixedPointValue - rhs._fixedPointValue);
 	return result;
 }
 
-Fixed Fixed::operator*(const Fixed &rhs){
+Fixed Fixed::operator*(const Fixed &rhs) const{
 	Fixed result;
 	result.setRawBits((this->_fixedPointValue * rhs._fixedPointValue) >> _fractionalBits);
 	return result;
 }
 
-Fixed Fixed::operator/(const Fixed &rhs) {
+Fixed Fixed::operator/(const Fixed &rhs) const{
 	Fixed result;
 	if (rhs._fixedPointValue == 0) {
 		std::cout << "Divison by zero" << std::endl;
@@ -91,27 +91,27 @@ Fixed Fixed::operator/(const Fixed &rhs) {
 	return result;
 }
 
-bool Fixed::operator==(const Fixed &rhs) {
+bool Fixed::operator==(const Fixed &rhs) const{
 	return this->_fixedPointValue == rhs._fixedPointValue;
 }
 
-bool Fixed::operator>=(const Fixed &rhs) {
+bool Fixed::operator>=(const Fixed &rhs) const{
 	return this->_fixedPointValue >= rhs._fixedPointValue;
 }
 
-bool Fixed::operator<=(const Fixed &rhs) {
+bool Fixed::operator<=(const Fixed &rhs) const{
 	return this->_fixedPointValue <= rhs._fixedPointValue;
 }
 
-bool Fixed::operator!=(const Fixed &rhs) {
+bool Fixed::operator!=(const Fixed &rhs) const{
 	return this->_fixedPointValue != rhs._fixedPointValue;
 }
 
-bool Fixed::operator>(const Fixed &rhs) {
+bool Fixed::operator>(const Fixed &rhs) const{
 	return this->_fixedPointValue > rhs._fixedPointValue;
 }
 
-bool Fixed::operator<(const Fixed &rhs) {
+bool Fixed::operator<(const Fixed &rhs) const{
 	return this->_fixedPointValue < rhs._fixedPointValue;
 }
 

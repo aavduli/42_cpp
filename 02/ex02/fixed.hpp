@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:34:39 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/09 18:13:55 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/10 15:58:55 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ class Fixed {
 		
 		Fixed operator=(const Fixed &rhs);
 		//comparaison
-		bool operator==(const Fixed &rhs);
-		bool operator>=(const Fixed &rhs);
-		bool operator<=(const Fixed &rhs);
-		bool operator!=(const Fixed &rhs);
-		bool operator>(const Fixed &rhs);
-		bool operator<(const Fixed &rhs);
+		bool operator==(const Fixed &rhs) const;
+		bool operator>=(const Fixed &rhs) const;
+		bool operator<=(const Fixed &rhs) const;
+		bool operator!=(const Fixed &rhs) const;
+		bool operator>(const Fixed &rhs) const;
+		bool operator<(const Fixed &rhs) const;
 
 		//arithmetique
-		Fixed operator+(const Fixed &rhs);
-		Fixed operator-(const Fixed &rhs);
-		Fixed operator*(const Fixed &rhs);
-		Fixed operator/(const Fixed &rhs);
+		Fixed operator+(const Fixed &rhs) const;
+		Fixed operator-(const Fixed &rhs) const;
+		Fixed operator*(const Fixed &rhs) const;
+		Fixed operator/(const Fixed &rhs) const;
 
 		//incrementation et decrementation
 		Fixed operator++();
