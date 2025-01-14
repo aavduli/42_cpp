@@ -6,17 +6,22 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:13:44 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/14 14:42:31 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:00:40 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string& _name)
+ClapTrap::ClapTrap(const std::string& _name)
 	: name(_name), HP(10), EP(10), AD(0) {
-	std::cout << "ClapTrap's constructor was called: " << name << "HP: " << HP << "EP: " << EP
-	<< "AD: " << AD << std::endl;
+	std::cout << "ClapTrap's constructor was called. " << name << " has: " <<  "HP: " << HP << " EP: " << EP
+	<< " AD: " << AD << std::endl;
 }
+
+ClapTrap::ClapTrap(const ClapTrap& other) 
+	: name(other.name), HP(other.HP), EP(other.EP), AD(other.AD) {
+		std::cout << "Copy constructor was called for ClapTrap." << std::endl;
+	}
 
 ClapTrap::~ClapTrap() {
 	std::cout << "ClapTrap's destructor was called" << std::endl;
@@ -69,7 +74,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 	}
 	else {
 		HP -= amount;
-		std::cout << "ClapTrap: " << name << " has taken " << amount << " and have " << HP << std::endl;
+		std::cout << "ClapTrap: " << name << " has taken " << amount << " damage and have " << HP << " HP left" << std::endl;
 	}
 	return ;
 }
@@ -88,7 +93,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		HP += amount;
 		if (HP > 10)
 			HP = 10;
-		std::cout << name << " has been repaired and regained " << amount << "HP back and now is at: " << HP << " HP." << std::endl;
+		std::cout << name << " has been repaired and regained " << amount << " HP back and now is at: " << HP << " HP." << std::endl;
 	}
 	return ;
 }

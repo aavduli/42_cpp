@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:13:33 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/14 14:42:13 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/14 15:58:13 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 class ClapTrap {
 
 	private:
-		std::string name;
-		int			HP;
-		int 		EP;
-		int			AD;
+		std::string 	name;
+		unsigned int	HP;
+		unsigned int 	EP;
+		unsigned int	AD;
 	public:
 		ClapTrap();
-		ClapTrap(std::string& _name);
+		ClapTrap(const std::string& _name);
+		ClapTrap(const ClapTrap& other);
 		~ClapTrap();
 
 	void	setHP(int _HP);
