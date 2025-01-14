@@ -6,12 +6,89 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:13:44 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/13 14:41:36 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/14 14:42:31 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(const std::string& name, int HP, int EP, int AD) {
-	std::cout << "ClapTrap's constructor was called." << std::endl;
+ClapTrap::ClapTrap(std::string& _name)
+	: name(_name), HP(10), EP(10), AD(0) {
+	std::cout << "ClapTrap's constructor was called: " << name << "HP: " << HP << "EP: " << EP
+	<< "AD: " << AD << std::endl;
+}
+
+ClapTrap::~ClapTrap() {
+	std::cout << "ClapTrap's destructor was called" << std::endl;
+}
+
+void ClapTrap::setHP(int _HP) {
+	this->HP = _HP;
+}
+
+int ClapTrap::getHP() const{
+	return this->HP;
+}
+
+void ClapTrap::setEP(int _EP) {
+	this->EP = _EP;
+}
+
+int ClapTrap::getEP() const {
+	return this->EP;
+}
+
+int ClapTrap::getAD() const {
+	return this->AD;
+}
+
+std::string ClapTrap::getName() const {
+	return this->name;
+}
+
+void	ClapTrap::attack(const std::string& target) {
+	if (this->EP == 0) {
+		std::cout << name << " can't attack because he is out of energy point." << std::endl;
+		return ;
+	}
+	if (this->HP == 0) {
+		std::cout << name << " can't attack because he is out of HP." << std::endl;
+		return ;
+	}
+	std::cout << "ClapTrap " << name << " attack " << target << ", causing " << AD << " point of dommage." 
+		<< std::endl;
+	this-> EP -= 1;
+}
+
+void ClapTrap::takeDamage(unsigned int amount) {
+	if (HP == 0)
+		std::cout << "ClapTrap: " << name << " is already at 0 HP and cannot take more damage." << std::endl;
+	if (amount >= HP) {
+		HP = 0;
+		std::cout << "ClapTrap: " << name << " has taken " << amount << "damage and now is destroyed" << std::endl;
+	}
+	else {
+		HP -= amount;
+		std::cout << "ClapTrap: " << name << " has taken " << amount << " and have " << HP << std::endl;
+	}
+	return ;
+}
+
+void ClapTrap::beRepaired(unsigned int amount) {
+	if (HP == 0) {
+		std::cout << name << " can not be repaired because he is out of HP." << std::endl;
+		return ;
+	}
+	if (EP == 0) {
+		std::cout << name << " can not be repaired because he is out of EP." << std::endl;
+		return ;
+	}
+	else {
+		EP -= 1;
+		HP += amount;
+		if (HP > 10)
+			HP = 10;
+		std::cout << name << " has been repaired and regained " << amount << "HP back and now is at: " << HP << " HP." << std::endl;
+	}
+	return ;
 }
