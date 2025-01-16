@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:05:39 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/16 15:58:11 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/16 16:11:25 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ ScavTrap::ScavTrap(const std::string& _name) : ClapTrap(_name) {
 	setHP(100);
 	setEP(50);
 	setAD(20);
-	std::cout << "ScavTrap's constructor was called. " << getName() << " has: " <<  "hp: " << getHP() << " ep: " << getEP()
-	<< " ad: " << getAD() << std::endl;
+	std::cout << "ClapTrap's wife: ScavTrap's constructor was called. " << getName() << " has: " <<  "HP: " << getHP() << " EP: " << getEP()
+	<< " AD: " << getAD() << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) 
