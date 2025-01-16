@@ -6,13 +6,13 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:01:44 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/16 18:41:24 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/16 18:48:10 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "animal.hpp"
 
-Animal::Animal() : type("Default") {
+Animal::Animal() : type() {
 	std::cout << "Default constructor for animal called." << std::endl;
 }
 
