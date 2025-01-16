@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:05:39 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/16 15:57:01 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/16 15:40:26 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,6 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap's destructor was called" << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target) {
-	if (this->getEP() == 0) {
-		std::cout << name << " can't attack because he is out of energy point." << std::endl;
-		return ;
-	}
-	if (this->getHP() == 0) {
-		std::cout << name << " can't attack because he is out of HP." << std::endl;
-		return ;
-	}
-	std::cout << "ScavTrap " << getName() << " hit " << target << ", causing " << getAD() << " point of strong dammage." 
-		<< std::endl;
-	setEP(getEP() - 1);
-}
-
 void	ScavTrap::guardGate() {
-	std::cout << "ScavTrap " << getName() << " is now in gate keeper mode." << std::endl;
+	std::cout << "ScavTrap " << name << " is now in gate keeper mode." << std::endl;
 }

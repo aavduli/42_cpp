@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 16:04:50 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/16 15:53:08 by aavduli          ###   ########.fr       */
+/*   Created: 2025/01/13 13:13:00 by aavduli           #+#    #+#             */
+/*   Updated: 2025/01/16 15:42:46 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-# include <iostream>
-# include "ClapTrap.hpp"
+int	main() {
 
-class ScavTrap : public ClapTrap {
-	
-	private:
-		std::string name;
-	public:
-		ScavTrap();
-		ScavTrap(const std::string& _name);
-		ScavTrap(const ScavTrap& other);
-		~ScavTrap();
+	{
+		ScavTrap Scavi("Serena");
+		Scavi.attack("World Boss");
+		Scavi.guardGate();
+	}
 
-	void	attack(const std::string& target);
-	void	guardGate();
-};
-
-
-#endif
+	return 0;
+}
