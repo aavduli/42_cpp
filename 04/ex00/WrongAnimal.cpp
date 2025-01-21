@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:15:03 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/21 14:05:28 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:39:06 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ WrongAnimal::WrongAnimal(const std::string& _type) : type(_type) {
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other) : type(other.type) {
 	std::cout << "Wrong Animal copy constructor called" << std::endl;
+}
+
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &rhs) {
+	if (this != &rhs) {
+		this->type = rhs.type;
+	}
+	return *this;
 }
 
 WrongAnimal::~WrongAnimal() {

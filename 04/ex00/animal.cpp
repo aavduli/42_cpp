@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:01:44 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/21 13:59:29 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:36:50 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ Animal::Animal(const std::string& type){
 
 Animal::Animal(const Animal& other) : type(other.type) {
 	std::cout << "Animal's copy constructor was called." << std::endl;
+}
+
+Animal &Animal::operator=(const Animal &rhs) {
+	if (this != &rhs){
+		this->type = rhs.type;
+	}
+	return *this;
 }
 
 Animal::~Animal() {

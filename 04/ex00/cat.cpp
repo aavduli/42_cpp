@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:01:46 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/16 18:38:42 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:36:54 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ Cat::Cat() : Animal() {
 
 Cat::Cat(const Cat& other) : Animal(other) {
 	std::cout << "Cat's copy constructor was called." << std::endl;
+}
+
+Cat &Cat::operator=(const Cat &rhs) {
+	if (this != &rhs)
+		this->type = rhs.type;
+	return *this;
 }
 
 Cat::~Cat() {

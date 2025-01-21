@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:00:46 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/21 13:54:40 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:35:34 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Cat : public Animal {
 	public:
 		Cat();
 		Cat(const Cat &other);
-		Cat &operator=(const Cat &other);
+		Cat &operator=(const Cat &rhs);
 		~Cat();
 
 		void makeSound() const;
