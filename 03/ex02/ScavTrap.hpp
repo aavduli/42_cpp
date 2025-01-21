@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:04:50 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/16 15:58:24 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:29:26 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ScavTrap : public ClapTrap {
 		ScavTrap();
 		ScavTrap(const std::string& _name);
 		ScavTrap(const ScavTrap& other);
+		ScavTrap &operator=(const ScavTrap &rhs);
 		~ScavTrap();
 
 	void	attack(const std::string& target);

@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:13:44 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/16 15:33:37 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:24:53 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,17 @@ ClapTrap::ClapTrap(const std::string& _name)
 ClapTrap::ClapTrap(const ClapTrap& other) 
 	: name(other.name), HP(other.HP), EP(other.EP), AD(other.AD) {
 		std::cout << "Copy constructor was called for ClapTrap." << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
+	std::cout << "Copy assignement operator called." << std::endl;
+	if (this != &rhs) {
+		this->name = rhs.name;
+		this->HP = rhs.HP;
+		this->EP = rhs.EP;
+		this->AD = rhs.AD;
+	}
+	return *this;
 }
 
 ClapTrap::~ClapTrap() {

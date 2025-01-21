@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 13:13:33 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/16 15:33:13 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:28:48 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ClapTrap {
 		ClapTrap();
 		ClapTrap(const std::string& _name);
 		ClapTrap(const ClapTrap& other);
+		ClapTrap &operator=(const ClapTrap &rhs);
 		~ClapTrap();
 
 	void	setHP(int _HP);
