@@ -6,13 +6,13 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:01:44 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/16 18:48:10 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/21 13:59:29 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "animal.hpp"
 
-Animal::Animal() : type() {
+Animal::Animal() : type("Default") {
 	std::cout << "Default constructor for animal called." << std::endl;
 }
 
@@ -30,4 +30,8 @@ Animal::~Animal() {
 
 std::string Animal::getType() {
 	return this->type;
+}
+
+void	Animal::makeSound() const {
+	std::cout << "basic animal noise." << std::endl;
 }

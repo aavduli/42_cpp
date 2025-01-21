@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:15:00 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/17 13:32:22 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:05:07 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class WrongAnimal {
 		WrongAnimal(const std::string& _type);
 		WrongAnimal(const WrongAnimal& other);
 		~WrongAnimal();
+
+		std::string getType();
 
 		void makeSound();
 };

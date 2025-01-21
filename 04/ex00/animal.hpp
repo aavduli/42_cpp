@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:00:41 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/16 18:53:52 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/21 13:56:03 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 #include <iostream>
 
 class Animal {
-protected:
-	std::string type;
+	protected:
+		std::string type;
 
-public:
-	Animal();
-	Animal(const std::string& _type);
-	Animal(const Animal& _other);
-	virtual ~Animal();
+	public:
+		Animal();
+		Animal(const std::string& _type);
+		Animal(const Animal& _other);
+		virtual ~Animal();
 
-	std::string getType();
+		std::string getType();
 
-	virtual void makeSound() const = 0;
+		virtual void makeSound() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:15:03 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/17 13:37:32 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:05:28 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ WrongAnimal::WrongAnimal(const WrongAnimal& other) : type(other.type) {
 
 WrongAnimal::~WrongAnimal() {
 	std::cout << "Wrong Animal destructor called" << std::endl;
+}
+
+std::string WrongAnimal::getType(){
+	return this->type;
 }
 
 void	WrongAnimal::makeSound() {
