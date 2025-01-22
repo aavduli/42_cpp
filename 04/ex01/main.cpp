@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:58:48 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/21 14:03:42 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/22 14:50:35 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,26 @@
 #include "WrongCat.hpp"
 
 int	main() {
+	
+	const int array_size = 6;
 
-	{
-		Animal*	ani = new Animal();
-		Animal* dog = new Dog();
-		Animal* cat = new Cat();
-		WrongAnimal* Wcat = new WrongCat();
-
-		std::cout << "------ getType-------" << std::endl;
-
-		std::cout << ani->getType() << " " << std::endl;
-		std::cout << dog->getType() << " " << std::endl;
-		std::cout << cat->getType() << " " << std::endl;
-		std::cout << Wcat->getType() << " " << std::endl;
-
-		std::cout << "-----makeSound------" <<std::endl;
-
-		ani->makeSound();
-		dog->makeSound();
-		cat->makeSound();
-		Wcat->makeSound();
-
-		std::cout << "----ending test----" << std::endl;
-		
-		delete (Wcat);
-		delete (dog);
-		delete (cat);
+	Animal* _animal[array_size];
+	
+	for(int i = 0; i < array_size / 2; ++i) {
+		_animal[i] = new Dog();
+	}
+	for (int i = array_size / 2; i < array_size; ++i) {
+		_animal[i] = new Cat();
+	}
+	std::cout << " " << std::endl;
+	std::cout << "-------displaying idea---------" << std::endl;
+	for (int i = 0; i < array_size; ++i) {
+		std::cout << "Animals idea : " << i << " is " << _animal[i]->getIdea(i) << std::endl;
+	}
+	std::cout << " " << std::endl;
+	std::cout << "-------deleting animals--------" << std::endl;
+	for (int i = 0; i < array_size; ++i){
+		delete _animal[i];
 	}
 	return 0;
 }

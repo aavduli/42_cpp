@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:01:44 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/21 14:36:50 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/22 14:45:20 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,9 @@ std::string Animal::getType() {
 
 void	Animal::makeSound() const {
 	std::cout << "basic animal noise." << std::endl;
+}
+
+std::string Animal::getIdea(int index) const{
+	(void)index;
+	return "Animal has no idea...";
 }

@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:00:41 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/21 14:32:16 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/22 14:45:25 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Animal {
 		std::string getType();
 
 		virtual void makeSound() const;
+		virtual std::string getIdea(int index) const;
 };
 
 #endif

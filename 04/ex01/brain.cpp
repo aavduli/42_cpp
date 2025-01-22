@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:05:44 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/21 16:07:36 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/22 14:21:12 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 Brain::Brain() {
 	std::cout << "default constructor for Brain called" << std::endl;
-	idea[1] = "eat";
-	idea[2] = "drink";
-	idea[3] = "run";
+	idea[0] = "eat";
+	idea[1] = "drink";
+	idea[2] = "run";
 	for (int i = 4; i < 100 ; i++)
 		idea[i] = "";
 }
