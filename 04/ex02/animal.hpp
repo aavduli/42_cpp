@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 16:58:48 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/24 12:38:23 by aavduli          ###   ########.fr       */
+/*   Created: 2025/01/16 17:00:41 by aavduli           #+#    #+#             */
+/*   Updated: 2025/01/22 14:45:25 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
-#include "dog.hpp"
-#include "cat.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-int	main() {
-	Cat cat;
-	Dog dog;
+#include <string>
+#include <iostream>
 
-	Animal mixedAnimal(dog, cat);
-	for (int i = 0; i < 100; ++i)
-		std::cout << "Mixed animal's idea: " << i << mixedAnimal.getBrain()->getIdea(i) << std::endl;
-	return 0;
-}
+class Animal {
+	protected:
+		std::string type;
+
+	public:
+		Animal();
+		Animal(const std::string& _type);
+		Animal(const Animal& _other);
+		Animal &operator=(const Animal &rhs);
+		virtual ~Animal();
+
+		std::string getType();
+
+		virtual void makeSound() const;
+		virtual std::string getIdea(int index) const;
+};
+
+#endif

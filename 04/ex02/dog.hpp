@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 16:58:48 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/24 12:38:23 by aavduli          ###   ########.fr       */
+/*   Created: 2025/01/16 17:00:44 by aavduli           #+#    #+#             */
+/*   Updated: 2025/01/22 14:47:54 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DOG_HPP
+#define DOG_HPP
+
 #include "animal.hpp"
-#include "dog.hpp"
-#include "cat.hpp"
+#include "brain.hpp"
 
-int	main() {
-	Cat cat;
-	Dog dog;
+class Dog : public Animal {
 
-	Animal mixedAnimal(dog, cat);
-	for (int i = 0; i < 100; ++i)
-		std::cout << "Mixed animal's idea: " << i << mixedAnimal.getBrain()->getIdea(i) << std::endl;
-	return 0;
-}
+	private:
+		Brain* _brain;
+	public:
+		Dog();
+		Dog(const Dog &other);
+		Dog &operator=(const Dog &rhs);
+		~Dog();
+
+		void makeSound() const;
+		virtual std::string getIdea(int index) const;
+};
+
+#endif

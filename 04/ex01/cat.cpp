@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:01:46 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/22 14:46:24 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/24 12:40:24 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 Cat::Cat() : Animal() {
 	this->type = "Cat";
 	this->_brain = new Brain();
+	for (int i = 0; i < 100; ++i)
+		_brain->setIdea(i, "Cat idea");
 	std::cout << "Cat's default constructor was called." << std::endl;
 }
 

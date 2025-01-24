@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 16:58:48 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/24 12:38:23 by aavduli          ###   ########.fr       */
+/*   Created: 2025/01/17 12:14:46 by aavduli           #+#    #+#             */
+/*   Updated: 2025/01/21 14:39:21 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
-#include "dog.hpp"
-#include "cat.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-int	main() {
-	Cat cat;
-	Dog dog;
+#include "WrongAnimal.hpp"
 
-	Animal mixedAnimal(dog, cat);
-	for (int i = 0; i < 100; ++i)
-		std::cout << "Mixed animal's idea: " << i << mixedAnimal.getBrain()->getIdea(i) << std::endl;
-	return 0;
-}
+class WrongCat : public WrongAnimal {
+	public:
+	WrongCat();
+	WrongCat(const WrongCat& other);
+	WrongCat& operator=(const WrongCat &rhs);
+	~WrongCat();
+
+	void	Makesound();
+};
+
+#endif

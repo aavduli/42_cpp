@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 16:58:48 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/24 12:38:23 by aavduli          ###   ########.fr       */
+/*   Created: 2025/01/17 12:15:00 by aavduli           #+#    #+#             */
+/*   Updated: 2025/01/21 14:38:27 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
-#include "dog.hpp"
-#include "cat.hpp"
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-int	main() {
-	Cat cat;
-	Dog dog;
+#include <iostream>
 
-	Animal mixedAnimal(dog, cat);
-	for (int i = 0; i < 100; ++i)
-		std::cout << "Mixed animal's idea: " << i << mixedAnimal.getBrain()->getIdea(i) << std::endl;
-	return 0;
-}
+class WrongAnimal {
+
+	protected:
+		std::string type;
+
+	public:
+		WrongAnimal();
+		WrongAnimal(const std::string& _type);
+		WrongAnimal(const WrongAnimal& other);
+		WrongAnimal &operator=(const WrongAnimal &rhs);
+		~WrongAnimal();
+
+		std::string getType();
+
+		void makeSound();
+};
+
+#endif

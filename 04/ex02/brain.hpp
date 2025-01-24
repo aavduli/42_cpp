@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 16:58:48 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/24 12:38:23 by aavduli          ###   ########.fr       */
+/*   Created: 2025/01/21 15:06:02 by aavduli           #+#    #+#             */
+/*   Updated: 2025/01/21 16:07:28 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
-#include "dog.hpp"
-#include "cat.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-int	main() {
-	Cat cat;
-	Dog dog;
+#include <iostream>
 
-	Animal mixedAnimal(dog, cat);
-	for (int i = 0; i < 100; ++i)
-		std::cout << "Mixed animal's idea: " << i << mixedAnimal.getBrain()->getIdea(i) << std::endl;
-	return 0;
-}
+class Brain {
+	protected:
+		std::string idea[100];
+	public:
+		Brain();
+		Brain(const Brain &other);
+		Brain &operator=(const Brain &rhs);
+		~Brain();
+
+		void setIdea(int index, const std::string &_idea);
+		std::string getIdea(int index);
+};
+
+#endif
