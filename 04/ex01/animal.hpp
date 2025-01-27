@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:00:41 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/24 12:37:34 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/27 13:02:27 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Animal {
 	public:
 		Animal();
 		Animal(const std::string& _type);
-		Animal(const Animal& Dog, const Animal& Cat);
 		Animal(const Animal& _other);
 		Animal &operator=(const Animal &rhs);
 		virtual ~Animal();
