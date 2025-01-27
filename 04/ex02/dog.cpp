@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:01:42 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/22 14:48:09 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/24 12:40:19 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 Dog::Dog() : Animal() {
 	this->type = "Dog";
 	this->_brain = new Brain();
+	for (int i = 0; i < 100; ++i)
+		_brain->setIdea(i, "Dog idea");
 	std::cout << "Dog constructor was called." << std::endl;
 }
 
