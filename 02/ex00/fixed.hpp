@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:10:37 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/06 13:19:11 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/01/30 14:39:50 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Fixed {
 	public:
 		Fixed();
 		Fixed(const Fixed &src);
-		
 		Fixed &operator=(const Fixed &rhs);
 		~Fixed();
 		

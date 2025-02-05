@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:34:39 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/14 15:48:18 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/02/05 13:22:30 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 class Fixed {
 	private:
-		int					_fixedPointValue;
-		static const int	_fractionalBits = 8;
+		int					_fixedPointValue; // value * fractionalBits.
+		static const int	_fractionalBits = 8; // 2^8 = 256
 
 	public:
 		Fixed();
