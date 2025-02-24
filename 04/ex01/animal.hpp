@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:00:41 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/27 13:02:27 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/02/24 13:47:42 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 class Animal {
 	protected:
 		std::string type;
-		Brain* brain;
 	public:
 		Animal();
 		Animal(const std::string& _type);

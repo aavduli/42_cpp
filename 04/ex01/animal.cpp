@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 17:01:44 by aavduli           #+#    #+#             */
-/*   Updated: 2025/01/27 13:23:55 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/02/24 13:45:39 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,6 @@ Animal::~Animal() {
 
 std::string Animal::getType() {
 	return this->type;
-}
-
-Brain* Animal::getBrain() const {
-	return this->brain;
 }
 
 void	Animal::makeSound() const {
