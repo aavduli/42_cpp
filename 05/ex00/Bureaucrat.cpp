@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:51:06 by aavduli           #+#    #+#             */
-/*   Updated: 2025/02/26 12:03:31 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/02/26 15:12:01 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)  {
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade) {
-	if (grade < 1)
+	if (grade < 1) {
 		throw GradeTooHighException();
-	else if (grade > 150)
+	}
+	if (grade > 150) {
 		throw GradeTooLowException();
-	std::cout << "Bureaucrat constructor was called." << std::endl;
+	}
+	// std::cout << "Bureaucrat constructor was called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade) {
@@ -37,7 +39,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat's destructor was called." << std::endl;
+	// std::cout << "Bureaucrat's destructor was called." << std::endl;
 }
 
 std::string Bureaucrat::getName() const {
@@ -49,14 +51,16 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::promote() {
-	if (_grade -1 < 1)
+	if (_grade -1 < 1) {
 		throw GradeTooHighException();
+	}
 	_grade--;
 }
 
 void Bureaucrat::demote() {
-	if (_grade + 1 > 150)
+	if (_grade + 1 > 150) {
 		throw GradeTooLowException();
+	}
 	_grade++;
 }
 
