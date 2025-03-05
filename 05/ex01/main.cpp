@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:51:04 by aavduli           #+#    #+#             */
-/*   Updated: 2025/03/03 16:07:41 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/03/05 13:24:04 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main() {
 			std::cout << "Form created succefuly: " << validForm.getName() << std::endl;
 			Bureaucrat b1("Alexis", 1);
 			b1.signForm(validForm);
-			Bureaucrat b2("Stagiaire", 150);
+			Bureaucrat b2("Stagiaire", 148);
 			b2.signForm(validForm);
 			Form tooHigh("Trash", 151, 50);
 		 }
