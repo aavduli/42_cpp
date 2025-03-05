@@ -57,5 +57,4 @@ class AForm {
 
 std::ostream& operator<<(std::ostream& os, const AForm &b);
 
-
 #endif
