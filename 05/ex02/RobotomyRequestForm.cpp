@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:02:38 by aavduli           #+#    #+#             */
-/*   Updated: 2025/03/05 16:39:40 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/03/05 16:43:07 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ RobotomyRequestForm::RobotomyRequestForm() : _target("Unknown") {
 	// std::cout << "Please don't use default constructor and insert a target." << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("RobotomyRequestForm", 145, 137), _target(target) {
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target) {
 	// std::cout << "Shrubbery Form created Succefuly" << std::endl;
 }
 
