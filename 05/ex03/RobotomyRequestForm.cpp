@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:02:38 by aavduli           #+#    #+#             */
-/*   Updated: 2025/03/05 16:43:07 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/03/12 08:46:09 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,9 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const{
 	else {
 		std::cout << "Robotomy has failed on: " << _target << std::endl;
 	}
+}
+
+AForm* RobotomyRequestForm::create(std::string &target)
+{
+	return new RobotomyRequestForm(target);
 }

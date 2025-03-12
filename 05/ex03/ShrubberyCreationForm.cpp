@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:01:27 by aavduli           #+#    #+#             */
-/*   Updated: 2025/03/05 16:10:39 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/03/12 08:48:03 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
     file << "    /____\\        /____\\    " << std::endl;
     file << "      ||            ||    " << std::endl;
     file.close();
+}
+
+AForm* ShrubberyCreationForm::create(std::string& target) {
+	return new ShrubberyCreationForm(target);
 }
