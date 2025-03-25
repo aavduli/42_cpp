@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:48:49 by aavduli           #+#    #+#             */
-/*   Updated: 2025/03/12 08:45:32 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/03/25 10:47:18 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class RobotomyRequestForm : public AForm {
 
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
 	void execute(const Bureaucrat& executor) const;
-	static AForm* create(std::string& target);
+	AForm* create(std::string& target);
 };
 
 #endif
