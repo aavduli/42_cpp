@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:51:04 by aavduli           #+#    #+#             */
-/*   Updated: 2025/03/12 09:13:10 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/03/25 10:59:23 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,11 @@ int main() {
     Intern intern;
     Bureaucrat boss("Boss", 1);
 
-    // Création de formulaires
     AForm* form1 = intern.makeForm("shrubbery creation", "Garden");
     AForm* form2 = intern.makeForm("robotomy request", "Alice");
     AForm* form3 = intern.makeForm("presidential pardon", "Bob");
-    AForm* form4 = intern.makeForm("invalid form", "Test"); // Doit renvoyer NULL
+    AForm* form4 = intern.makeForm("invalid form", "Test");
 
-    // Test d'exécution des formulaires créés
     if (form1) {
         form1->beSigned(boss);
         form1->execute(boss);

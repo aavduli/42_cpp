@@ -6,14 +6,14 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:43:17 by aavduli           #+#    #+#             */
-/*   Updated: 2025/03/25 10:55:40 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/03/25 11:00:52 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
 Intern::Intern() {
-	std::cout << "Intern can't have a default constructor." << std::endl;
+	std::cout << "Default constructor for intern has been called." << std::endl;
 }
 
 Intern::Intern(const Intern &other) {
@@ -21,13 +21,14 @@ Intern::Intern(const Intern &other) {
 }
 
 Intern::~Intern() {
-	std::cout << "Destructor for Intern has been summoned." << std::endl;
+	std::cout << "Destructor for Intern has been called." << std::endl;
 }
 
 Intern &Intern::operator=(const Intern& rhs) {
 	(void)rhs;
 	return *this;
 }
+
 AForm* creatShrubbery(std::string target) {
 	return new ShrubberyCreationForm(target);
 }
