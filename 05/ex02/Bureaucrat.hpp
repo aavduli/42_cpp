@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 10:51:08 by aavduli           #+#    #+#             */
-/*   Updated: 2025/03/05 15:11:36 by aavduli          ###   ########.fr       */
+/*   Updated: 2025/03/25 14:03:26 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class Bureaucrat {
 		void promote();
 		void demote();
 		void signForm(AForm &f);
+		void execForm(const AForm &f);
 
 		Bureaucrat &operator=(const Bureaucrat &rhs);
 
