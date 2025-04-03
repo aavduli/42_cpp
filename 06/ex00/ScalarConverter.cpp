@@ -5,13 +5,13 @@ LiteralType detectType(const std::string& literal) {
 		return TYPE_FLOAT;
 	if (literal == "nan" || literal == "+inf" || literal == "-inf")
 		return TYPE_DOUBLE;
-	if (literal.length() == 1 && std::isdigit(literal[0]))
+	if (literal.length() == 1 && !std::isdigit(literal[0]))
 		return TYPE_CHAR;
 	char *end;
-	long val = std::strtol(literal.c_str(), &end, 10);
+	std::strtol(literal.c_str(), &end, 10);
 	if (*end == '\0')
 		return TYPE_INT;
-	if (literal.back() == 'f') {
+	if (!literal.empty() && literal[literal.length() - 1] == 'f') {
 		std::string sub = literal.substr(0, literal.length() - 1);
 		std::strtof(sub.c_str(), &end);
 		if (*end == '\0')
@@ -36,7 +36,7 @@ void ScalarConverter::convert(const std::string& literal) {
 			
 			std::cout << "char: " << c << std::endl;
 			std::cout << "int: " << i << std::endl;
-			std::cout << "float: " << f << std::endl;
+			std::cout << "float: " << f << "f" << std::endl;
 			std::cout << "double: " << d << std::endl;
 			break;
 
@@ -48,53 +48,53 @@ void ScalarConverter::convert(const std::string& literal) {
 			double d = static_cast<double>(i);
 
 			if (i < 0 || i > 127)
-				std::cout << "Char impossible." << std::endl;
+				std::cout << "char: impossible" << std::endl;
 			else if (!isprint(c))
-				std::cout << "Non displayable." << std::endl;
+				std::cout << "char: non displayable" << std::endl;
 			else
 				std::cout << "char: " << c << std::endl;
 			std::cout << "int: " << i << std::endl;
-			std::cout << "float: " << f << std::endl;
+			std::cout << "float: " << f << "f" << std::endl;
 			std::cout << "double: " << d << std::endl;
 			break;
 		}
 		case TYPE_FLOAT: {
-			float f = std::strtof(literal.c_str(), nullptr);
+			float f = std::strtof(literal.c_str(), NULL);
 			char c = static_cast<char>(f);
 			int i = static_cast<int>(f);
 			double d = static_cast<double>(f);
 
 			if (std::isnan(f) || f < 0 || f > 127)
-				std::cout << "Char impossible." << std::endl;
+				std::cout << "char: impossible" << std::endl;
 			else if (!isprint(c))
-				std::cout << "Non displayable." << std::endl;
+				std::cout << "char: non displayable" << std::endl;
 			else
 				std::cout << "char: " << c << std::endl;
 			if (std::isnan(f) || f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min())
 				std::cout << "int: impossible" << std::endl;
 			else
 				std::cout << "int: " << i << std::endl;
-			std::cout << "float: " << f << std::endl;
+			std::cout << "float: " << f << "f" << std::endl;
 			std::cout << "double: " << d << std::endl;
 			break;
 		}
 		case TYPE_DOUBLE: {
-			double d = std::strtod(literal.c_str(), nullptr);
+			double d = std::strtod(literal.c_str(), NULL);
 			char c = static_cast<char>(d);
 			int i = static_cast<int>(d);
-			float f = static_cast<float>(f);
+			float f = static_cast<float>(d);
 
 			if (std::isnan(d) || d < 0 || d > 127)
 				std::cout << "char: impossible" << std::endl;
-			else if (std::isprint(c))
-				std::cout << "char: non diplayable" << std::endl;
+			else if (!std::isprint(c))
+				std::cout << "char: non displayable" << std::endl;
 			else
 				std::cout << "char: " << c << std::endl;
-			if (std::isnan(d) || std::numeric_limits<int>::max() || std::numeric_limits<int>::min())
+			if (std::isnan(d) || d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min())
 				std::cout << "int: impossible" << std::endl;
 			else
 				std::cout << "int: " << i << std::endl;
-			std::cout << "float: " << f << std::endl;
+			std::cout << "float: " << f << "f" << std::endl;
 			std::cout << "double: " << d << std::endl;
 			break;
 		}
