@@ -3,15 +3,30 @@
 # include <iostream>
 # include <string>
 # include <fstream>
+# include <limits>
+# include <cmath>
+# include <sstream>
+# include <iomanip>
+
+enum LiteralType {
+	TYPE_CHAR,
+	TYPE_INT,
+	TYPE_DOUBLE,
+	TYPE_FLOAT,
+	TYPE_INVALID,
+};
 
 class ScalarConverter {
 private:
-
+	ScalarConverter();
+	ScalarConverter(const ScalarConverter &other);
+	~ScalarConverter();
+	ScalarConverter &operator=(const ScalarConverter &rhs);
 
 public:
-    ScalarConverter();
-    ~ScalarConverter();
-
+	static void convert(const std::string& literal);
 };
+
+std::ostream& operator<<(std::ostream& os, const ScalarConverter &b);
 
 #endif
