@@ -1,28 +1,10 @@
 #include "Serializer.hpp"
+#include "Data.hpp"
 
-Serializer::Serializer() {
-	std::cout << "Default constructor for Serializer has been called" << std::endl;
+uintptr_t Serializer::serialize(Data* ptr) {
+	return reinterpret_cast<uintptr_t>(ptr);
 }
 
-Serializer::Serializer() {
+Data* Serializer::deserialize(uintptr_t raw) {
+	return reinterpret_cast<Data*>(raw);
 }
-
-Serializer::Serializer(const Serializer &other) : { //copy constructor
-}
-
-Serializer::~Serializer() {
-	std::cout << "Destructor for Serializer has been called" << std::endl;
-}
-
-Serializer &Serializer::operator=(const Serializer &rhs) {
-	if (this != &rhs) {
-	}
-	return *this;
-	std::cout << "Copy assignement operator called." << std::endl;
-}
-
-std::ostream& operator<<(std::ostream& os, const Serializer &b) {
-	// os << b. << " " << b. << ".";
-	// return os;
-}
-

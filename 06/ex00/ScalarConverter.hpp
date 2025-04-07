@@ -19,15 +19,14 @@ enum LiteralType {
 
 class ScalarConverter {
 private:
-	ScalarConverter();
-	ScalarConverter(const ScalarConverter &other);
-	~ScalarConverter();
-	ScalarConverter &operator=(const ScalarConverter &rhs);
+	// ScalarConverter();
+	// ScalarConverter(const ScalarConverter &other);
+	// ~ScalarConverter();
+	// ScalarConverter &operator=(const ScalarConverter &rhs);
 
 public:
 	static void convert(const std::string& literal);
 };
 
-std::ostream& operator<<(std::ostream& os, const ScalarConverter &b);
 
 #endif

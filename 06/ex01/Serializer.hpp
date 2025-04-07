@@ -3,21 +3,22 @@
 # include <iostream>
 # include <string>
 # include <fstream>
+# include <stdint.h>
+# include "Data.hpp"
 
 class Serializer {
 private:
-	Serializer();
-	Serializer();
-	Serializer(const Serializer &other);
-	~Serializer();
+	// Serializer();
+	// Serializer();
+	// Serializer(const Serializer &other);
+	// ~Serializer();
 
-	Serializer &operator=(const Serializer &rhs);
+	// Serializer &operator=(const Serializer &rhs);
 
 public:
-	
-
+	static uintptr_t serialize(Data* ptr);
+	static Data* deserialize(uintptr_t raw);
 };
 
-std::ostream& operator<<(std::ostream& os, const Serializer &b);
 
 #endif
