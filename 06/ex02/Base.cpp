@@ -5,10 +5,10 @@ Base::~Base() {};
 Base* generate() {
 
 	srand(time(NULL));
-	int ran = rand();
-	if (ran%3 == 0)
+	int ran = rand()%10;
+	if (ran < 4)
 		return new A;
-	else if (ran%3 == 1)
+	else if (ran > 3 && ran < 7)
 		return new B;
 	else 
 		return new C;

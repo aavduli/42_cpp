@@ -9,5 +9,9 @@ int main() {
 
 	identify(test);
 	identify(test3);
+
+	delete test;
+	delete test2;
+	return 0;
 }
 
