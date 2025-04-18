@@ -1,5 +1,5 @@
-#ifndef MUTANSTACK_HPP
-# define MUTANSTACK_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 # include <iostream>
 # include <string>
 # include <fstream>
