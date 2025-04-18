@@ -5,6 +5,7 @@
 # include <fstream> 
 # include <vector>
 # include <algorithm>
+# include <limits>
 
 class Span {
 private:
@@ -27,8 +28,8 @@ public:
 	}
 	int shortestSpan() const;
 	int longestSpan() const;
+	int getNumbers(int index);
 
 };
-
 
 #endif
