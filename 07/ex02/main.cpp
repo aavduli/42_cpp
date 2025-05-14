@@ -15,10 +15,9 @@ int main() {
 		std::cout << "b [" << i << "] = " << b[i] << std::endl;
 	}
 	try {
-		std::cout << a[10] << std::endl;
+		std::cout << a[5] << std::endl;
 	} catch (std::exception &e) {
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-
 	return 0;
 }
