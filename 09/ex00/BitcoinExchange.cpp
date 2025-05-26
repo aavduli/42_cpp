@@ -31,18 +31,20 @@ void BitcoinExchange::processInput(const std::string& filename) {
 	std::string line;
 	std::getline(file, line);
 	while (std::getline(file, line)) {
-		if (line.empty()) continue;
+		if (line.empty()) 
+			continue;
 		size_t sep = line.find('|');
 		if (sep == std::string::npos) {
 			std::cerr << "Invalid line format: " << line << std::endl;
 			continue;
 		}
+		std::cout << line << std::endl;
 		std::string date = line.substr(0, sep);
 		std::string valueStr = line.substr(sep + 1);
 		date.erase(date.find_last_not_of(" \t\n\r\f\v") + 1);
 		date.erase(0, date.find_first_not_of(" \t\n\r\f\v"));
-		valueStr.erase(date.find_last_not_of(" \t\n\r\f\v ") + 1);
-		valueStr.erase(0, date.find_first_not_of(" \t\n\r\f\v"));
+		// valueStr.erase(date.find_last_not_of(" \t\n\r\f\v ") + 1);
+		// valueStr.erase(0, date.find_first_not_of(" \t\n\r\f\v"));
 		float value = std::atof(valueStr.c_str());
 		if (value < 0) {
 			std::cerr << "Error: not a positiv number: " << value << std::endl;
@@ -50,7 +52,7 @@ void BitcoinExchange::processInput(const std::string& filename) {
 		}
 		std::map<std::string, float>::const_iterator it = _rates.lower_bound(date);
 		if (it == _rates.end() || it->first != date) {
-			std::cerr << "Error: no exchange rate available before" << date << std::endl;
+			std::cerr << "Error: no exchange rate available before " << date << std::endl;
 			continue;
 		}
 		--it;
