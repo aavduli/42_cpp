@@ -8,6 +8,7 @@
 # include <sstream>
 # include <map>
 # include <cstdlib>
+# include <limits>
 
 class BitcoinExchange {
 private:
@@ -16,7 +17,7 @@ public:
 	BitcoinExchange();
 	~BitcoinExchange();
 
-	void loadDatabase(const std::string& filename);
+	void loadDatabase();
 	void processInput(const std::string& filename);
 
 };

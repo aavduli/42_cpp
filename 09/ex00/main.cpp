@@ -2,16 +2,12 @@
 
 int main(int ac, char **av) {
 	if (ac != 2) {
-		std::cout << "Missing arguments: <file>\n";
+		std::cout << "Please insert an input file" << std::endl;
 		return 1;
 	}
-	try {
-		BitcoinExchange bc;
-		bc.loadDatabase("data.csv");
-		bc.processInput(av[1]);
-	} catch (std::exception &e) {
-		std::cout << "Exception: " << e.what() << std::endl;
-	}
+	BitcoinExchange bc;
+	bc.loadDatabase();
+	bc.processInput(av[1]);
 	return 0;
 }
 
