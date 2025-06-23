@@ -4,6 +4,38 @@ BitcoinExchange::BitcoinExchange() : _rates() {}
 
 BitcoinExchange::~BitcoinExchange() {}
 
+bool BitcoinExchange::validNbr(std::string valueStr) {
+	if (valueStr[0] == '-') {
+		std::cout << "Error: not a positiv number" << std::endl;
+		return false;
+	}
+	int value = std::atof(valueStr.c_str());
+	if (value > 1000.0f) {
+		std::cout << "Error: too large number" << std::endl;
+		return false;
+	}
+	return true;
+}
+
+bool BitcoinExchange::validDate(std::string date) {
+	std::stringstream ss(date);
+	std::string year, month, day;
+
+	std::getline(ss, year, '-');
+	std::getline(ss, month, '-');
+	std::getline(ss, day, '-');
+	if (year.size() > 4) {
+		std::cout << "Error: invalid date" << std::endl;
+		return false;
+	}
+	int _month = std::atoi(month.c_str());
+	int _day = std::atoi(day.c_str());
+	if (_month < 1 || _month > 12 || _day < 1 || _day > 31) {
+		std::cout << "Error: invalid date" << std::endl;
+		return false;
+	}
+	return true;
+}
 
 void BitcoinExchange::loadDatabase() {
 	std::ifstream file;
@@ -54,27 +86,26 @@ void BitcoinExchange::processInput(const std::string& filename) {
 			while (!valueStr.empty() && valueStr[0] == ' ')
 				valueStr.erase(0, 1);
 		}
-		try {
-			value = std::atof(valueStr.c_str());
-			std::map<std::string, float>::iterator it = _rates.find(date);
-			if (valueStr[0] == '-') {
-				std::cout << "Error: not a positiv number" << std::endl;
-			}
-			if (value > std::numeric_limits<float>::max())
-				std::cout << "Errors: too large number" << std::endl;
-			if (it != _rates.end()) {
-				std::cout << date << " => " << value << " = " << (value * it->second) << std::endl;
-			}
-			else {
-				it = _rates.lower_bound(date);
-				if (it != _rates.begin()) {
-					--it;
+		if (validNbr(valueStr) != 0 || validDate(date) != 0) {
+			try {
+				value = std::atof(valueStr.c_str());
+				std::map<std::string, float>::iterator it = _rates.find(date);
+				if (it != _rates.end()) {
+					std::cout << date << " => " << value << " = " << (value * it->second) << std::endl;
 				}
-				std::cout << date << " => " << value << " = " << (value * it->second) << std::endl;
+				else {
+					it = _rates.lower_bound(date);
+					if (it != _rates.begin()) {
+						--it;
+					}
+					std::cout << date << " => " << value << " = " << (value * it->second) << std::endl;
+				}
+			} catch (std::exception &e) {
+				std::cout << "Output Exception: " << e.what() << std::endl;
 			}
-		} catch (std::exception &e) {
-			std::cout << "Output Exception: " << e.what() << std::endl;
 		}
+		else
+			continue ;
 	}
 	file.close();
 	return ;

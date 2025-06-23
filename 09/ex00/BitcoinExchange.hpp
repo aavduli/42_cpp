@@ -20,6 +20,9 @@ public:
 	void loadDatabase();
 	void processInput(const std::string& filename);
 
+	bool validNbr(std::string valueStr);
+	bool validDate(std::string date);
+
 };
 
 
