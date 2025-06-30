@@ -16,11 +16,13 @@ private:
 public:
 	BitcoinExchange();
 	~BitcoinExchange();
+	BitcoinExchange(const BitcoinExchange &other);
+	BitcoinExchange &operator=(const BitcoinExchange &rhs);
 
 	void loadDatabase();
 	void processInput(const std::string& filename);
 
-	bool validNbr(std::string valueStr);
+	bool validNbr(float value);
 	bool validDate(std::string date);
 
 };

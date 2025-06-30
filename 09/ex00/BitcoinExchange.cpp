@@ -4,14 +4,22 @@ BitcoinExchange::BitcoinExchange() : _rates() {}
 
 BitcoinExchange::~BitcoinExchange() {}
 
-bool BitcoinExchange::validNbr(std::string valueStr) {
-	if (valueStr[0] == '-') {
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) : _rates(other._rates) {}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &rhs)  {
+	if (this != &rhs) {
+		this->_rates.clear();
+		this->_rates = rhs._rates;
+	}
+}
+
+bool BitcoinExchange::validNbr(float value) {
+	if (value < 0.0f) {
 		std::cout << "Error: not a positiv number" << std::endl;
 		return false;
 	}
-	int value = std::atof(valueStr.c_str());
 	if (value > 1000.0f) {
-		std::cout << "Error: too large number" << std::endl;
+		std::cout << "Error: too large number: " << value << std::endl;
 		return false;
 	}
 	return true;
@@ -24,14 +32,14 @@ bool BitcoinExchange::validDate(std::string date) {
 	std::getline(ss, year, '-');
 	std::getline(ss, month, '-');
 	std::getline(ss, day, '-');
-	if (year.size() > 4) {
-		std::cout << "Error: invalid date" << std::endl;
+	if (year.size() != 4) {
+		std::cout << "Error: invalid date: " << date << std::endl;
 		return false;
 	}
 	int _month = std::atoi(month.c_str());
 	int _day = std::atoi(day.c_str());
 	if (_month < 1 || _month > 12 || _day < 1 || _day > 31) {
-		std::cout << "Error: invalid date" << std::endl;
+		std::cout << "Error: invalid date: " << date << std::endl;
 		return false;
 	}
 	return true;
@@ -60,10 +68,6 @@ void BitcoinExchange::loadDatabase() {
 			}
 		}
 	}
-	// std::map<std::string, float>::iterator it;
-	// for (it = _rates.begin(); it != _rates.end(); it++) {
-	// 	std::cout << it->first << " => " << it->second << std::endl;
-	// }
 	file.close();
 	return ;
 }
@@ -86,9 +90,9 @@ void BitcoinExchange::processInput(const std::string& filename) {
 			while (!valueStr.empty() && valueStr[0] == ' ')
 				valueStr.erase(0, 1);
 		}
-		if (validNbr(valueStr) != 0 || validDate(date) != 0) {
+		value = std::atof(valueStr.c_str());
+		if (validNbr(value) && validDate(date)) {
 			try {
-				value = std::atof(valueStr.c_str());
 				std::map<std::string, float>::iterator it = _rates.find(date);
 				if (it != _rates.end()) {
 					std::cout << date << " => " << value << " = " << (value * it->second) << std::endl;
