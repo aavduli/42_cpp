@@ -18,8 +18,9 @@ float RPN::evaluateRPN(const std::string& expr) {
 	std::string token;
 
 	while (ss >> token) {
+		std::cout << "[" << token << "]" << std::endl;
 		if (token == "+" || token == "-" || token == "*" || token == "/") {
-			if (_stack.size() < 2) {
+			if (_stack.size() != 2) {
 				std::cerr << "Error: not enough operands" << std::endl;
 			}
 			float b = _stack.top(); _stack.pop();
@@ -40,10 +41,10 @@ float RPN::evaluateRPN(const std::string& expr) {
 		else {
 			_stack.push(std::atof(token.c_str()));
 		}
-		if (_stack.size() != 1) {
-			std::cerr << "Error: invalid expression" << std::endl;
-			return 0;
-		}
+	}
+	if (_stack.size() != 1) {
+		std::cerr << "Error: invalid expression" << std::endl;
+		return 0;
 	}
 	return _stack.top();
 }
