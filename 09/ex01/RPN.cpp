@@ -1,28 +1,50 @@
 #include "RPN.hpp"
 
-RPN::RPN() {
-	std::cout << "Default constructor for RPN has been called" << std::endl;
-}
+RPN::RPN() {}
 
-RPN::RPN() {
-}
+RPN::RPN(const RPN &other) : _stack(other._stack) {}
 
-RPN::RPN(const RPN &other) : { //copy constructor
-}
-
-RPN::~RPN() {
-	std::cout << "Destructor for RPN has been called" << std::endl;
-}
+RPN::~RPN() {}
 
 RPN &RPN::operator=(const RPN &rhs) {
 	if (this != &rhs) {
+		_stack = rhs._stack;
 	}
 	return *this;
-	std::cout << "Copy assignement operator called." << std::endl;
 }
 
-std::ostream& operator<<(std::ostream& os, const RPN &b) {
-	// os << b. << " " << b. << ".";
-	// return os;
+float RPN::evaluateRPN(const std::string& expr) {
+	std::stringstream ss(expr);
+	std::string token;
+
+	while (ss >> token) {
+		if (token == "+" || token == "-" || token == "*" || token == "/") {
+			if (_stack.size() < 2) {
+				std::cerr << "Error: not enough operands" << std::endl;
+			}
+			float b = _stack.top(); _stack.pop();
+			float a = _stack.top(); _stack.pop();
+			float result;
+			if (token == "+") result = a + b;
+			if (token == "*") result = a * b;
+			if (token == "-") result = a - b;
+			else if (token == "/") {
+				if (b == 0) {
+					std::cerr << "Error: division by zero" << std::endl;
+					return 0;
+				}
+				result = a / b;
+			}
+			_stack.push(result);
+		}
+		else {
+			_stack.push(std::atof(token.c_str()));
+		}
+		if (_stack.size() != 1) {
+			std::cerr << "Error: invalid expression" << std::endl;
+			return 0;
+		}
+	}
+	return _stack.top();
 }
 

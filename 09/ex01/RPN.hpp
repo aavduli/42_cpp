@@ -3,21 +3,21 @@
 # include <iostream>
 # include <string>
 # include <fstream>
+# include <stack>
+# include <cstdlib>
+# include <sstream>
 
 class RPN {
 private:
-
-
+	std::stack<float> _stack;
 public:
-	RPN();
 	RPN();
 	RPN(const RPN &other);
 	~RPN();
 
 	RPN &operator=(const RPN &rhs);
 
+	float evaluateRPN(const std::string &expr);
 };
-
-std::ostream& operator<<(std::ostream& os, const RPN &b);
 
 #endif
