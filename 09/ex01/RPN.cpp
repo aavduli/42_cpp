@@ -13,15 +13,22 @@ RPN &RPN::operator=(const RPN &rhs) {
 	return *this;
 }
 
+bool RPN::validToken(std::string token) {
+	if (token != "+" && token != "-" && token != "*" && token != "/" && (token[0] < 48 || token[0] > 59)) {
+		return false;
+	}
+	return true;
+}
+
 float RPN::evaluateRPN(const std::string& expr) {
 	std::stringstream ss(expr);
 	std::string token;
 
 	while (ss >> token) {
-		std::cout << "[" << token << "]" << std::endl;
-		if (token == "+" || token == "-" || token == "*" || token == "/") {
+		if ((token == "+" || token == "-" || token == "*" || token == "/") && validToken(token)) {
 			if (_stack.size() != 2) {
 				std::cerr << "Error: not enough operands" << std::endl;
+				return 0;
 			}
 			float b = _stack.top(); _stack.pop();
 			float a = _stack.top(); _stack.pop();
