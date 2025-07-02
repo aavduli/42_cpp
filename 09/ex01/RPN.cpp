@@ -34,7 +34,7 @@ float RPN::evaluateRPN(const std::string& expr) {
 
 	try {
 		while (ss >> token) {
-			if ( validToken(token)) {
+			if (validToken(token)) {
 				if (_stack.size() < 2) throw std::runtime_error("Not enough operands");
 				float b = _stack.top(); _stack.pop();
 				float a = _stack.top(); _stack.pop();
@@ -44,11 +44,10 @@ float RPN::evaluateRPN(const std::string& expr) {
 			else {
 				std::stringstream numStream(token);
 				float value;
-				if (!(numStream >> value)) throw std::runtime_error("Invalid number:" + token);
+				if (!(numStream >> value) || value > 9) throw std::runtime_error("Invalid number:" + token);
 				_stack.push(value);
 			}
 		}
-	
 		if (_stack.size() != 1) throw std::runtime_error("Invalid expression");
 		return _stack.top();
 	} catch (const std::exception &e) {
@@ -56,4 +55,3 @@ float RPN::evaluateRPN(const std::string& expr) {
 		return 0;
 	}
 }
-
