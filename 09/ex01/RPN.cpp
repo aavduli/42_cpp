@@ -7,52 +7,53 @@ RPN::RPN(const RPN &other) : _stack(other._stack) {}
 RPN::~RPN() {}
 
 RPN &RPN::operator=(const RPN &rhs) {
-	if (this != &rhs) {
+	if (this != &rhs)
 		_stack = rhs._stack;
-	}
 	return *this;
 }
 
 bool RPN::validToken(std::string token) {
-	if (token != "+" && token != "-" && token != "*" && token != "/" && (token[0] < 48 || token[0] > 59)) {
-		return false;
-	}
+	if (token != "+" && token != "-" && token != "*" && token != "/") return false;
 	return true;
+}
+
+float RPN::doOperation(float a, float b, std::string token) {
+	if (token == "+") return a + b;
+	else if (token == "-") return a - b;
+	else if (token == "*") return a * b;
+	else if (token == "/") {
+		if (b == 0) throw std::runtime_error("Division by zero");
+		return a / b;
+	}
+	throw std::runtime_error ("Unknown operator: " + token);
 }
 
 float RPN::evaluateRPN(const std::string& expr) {
 	std::stringstream ss(expr);
 	std::string token;
 
-	while (ss >> token) {
-		if ((token == "+" || token == "-" || token == "*" || token == "/") && validToken(token)) {
-			if (_stack.size() != 2) {
-				std::cerr << "Error: not enough operands" << std::endl;
-				return 0;
+	try {
+		while (ss >> token) {
+			if ( validToken(token)) {
+				if (_stack.size() < 2) throw std::runtime_error("Not enough operands");
+				float b = _stack.top(); _stack.pop();
+				float a = _stack.top(); _stack.pop();
+				float result = doOperation(a , b, token);
+				_stack.push(result);
 			}
-			float b = _stack.top(); _stack.pop();
-			float a = _stack.top(); _stack.pop();
-			float result;
-			if (token == "+") result = a + b;
-			if (token == "*") result = a * b;
-			if (token == "-") result = a - b;
-			else if (token == "/") {
-				if (b == 0) {
-					std::cerr << "Error: division by zero" << std::endl;
-					return 0;
-				}
-				result = a / b;
+			else {
+				std::stringstream numStream(token);
+				float value;
+				if (!(numStream >> value)) throw std::runtime_error("Invalid number:" + token);
+				_stack.push(value);
 			}
-			_stack.push(result);
 		}
-		else {
-			_stack.push(std::atof(token.c_str()));
-		}
-	}
-	if (_stack.size() != 1) {
-		std::cerr << "Error: invalid expression" << std::endl;
+	
+		if (_stack.size() != 1) throw std::runtime_error("Invalid expression");
+		return _stack.top();
+	} catch (const std::exception &e) {
+		std::cerr << "Error: " << e.what() << std::endl;
 		return 0;
 	}
-	return _stack.top();
 }
 

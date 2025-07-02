@@ -5,8 +5,12 @@ int	main(int ac, char **av) {
 		std::cout << "Bad arguments: do [3 4 + 2 *]" << std::endl;
 		return 1;
 	}
-	RPN res;
-	float result = res.evaluateRPN(av[1]);
-	std::cout << "Result: " << result << std::endl;
+	try {
+		RPN res;
+		float result = res.evaluateRPN(av[1]);
+		std::cout << "Result: " << result << std::endl;
+	} catch (std::exception &e) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
 	return 0;
 }

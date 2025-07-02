@@ -18,6 +18,7 @@ public:
 	RPN &operator=(const RPN &rhs);
 
 	bool validToken(std::string token);
+	float doOperation(float a, float b, std::string token);
 	float evaluateRPN(const std::string &expr);
 };
 
