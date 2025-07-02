@@ -2,7 +2,7 @@
 
 int	main(int ac, char **av) {
 	if (ac != 2) {
-		std::cout << "Bad arguments: do [3 4 + 2 *]" << std::endl;
+		std::cerr << "Usage: " << av[0] << " \"<RPN expression>\"" << std::endl;
 		return 1;
 	}
 	try {
