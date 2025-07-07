@@ -17,7 +17,7 @@ public:
 
 	PmergeMe &operator=(const PmergeMe &rhs);
 
-	int	nbrComp;
+	size_t	nbrComp;
 	void mergeInsertSort(std::vector<int>& input);
 	void binaryInsert(std::vector<int>& vec, int value, std::size_t end);
 };
