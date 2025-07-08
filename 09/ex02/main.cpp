@@ -11,15 +11,15 @@ int main(int ac, char **av) {
 		input.push_back(std::atoi(av[i]));
 	}
 	std::cout << "Before: ";
-	for (size_t i = 0; i < input.size(); i++)
+	for (size_t i = 0; i < input.size(); ++i)
 		std::cout << input[i] << " ";
 	std::cout << std::endl;
 	mergeMe.mergeInsertSort(input);
 	std::cout << "After: ";
-	for (size_t i = 0; i < input.size(); i++)
+	for (size_t i = 0; i < input.size(); ++i)
 		std::cout << input[i] << " ";
 	std::cout << std::endl;
-	std::cout << "Number of comparaison: " << mergeMe.nbrComp << std::endl;
+	std::cout << "Number of comparisons: " << mergeMe.nbrComp << std::endl;
 	return 0;
 }
 
