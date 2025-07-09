@@ -41,11 +41,13 @@ std::vector<int> PmergeMe::jacobsthalIndices(int size) {
 		jacob.push_back(next);
 		++j;
 	}
-	for (std::size_t i = 1; i < jacob.size(); ++i) {
-		if (std::find(result.begin(), result.end(), jacob[i]) == result.end())
-			result.push_back(jacob[i]);
+	for (std::size_t i = 0; i < jacob.size(); ++i) {
+		if (std::find(result.begin(), result.end(), jacob[i]) == result.end()) {
+			if (jacob[i] != 0)
+				result.push_back(jacob[i]);
+		}
 	}
-	for (int i = 1; i < size; ++i) {
+	for (int i = 0; i < size; ++i) {
 		bool found = false;
 		for (std::size_t j = 0; j < result.size(); ++j) {
 			if (result[j] == i) {
@@ -67,30 +69,26 @@ void	PmergeMe::mergeInsertSort(std::vector<int>& input) {
 	int	leftover = -1;
 	std::size_t i;
 	for (i = 0; i + 1 < input.size(); i += 2) {
-		if (input[i] > input[i + 1]) {
+		if (input[i] > input[i + 1])
 			pairs.push_back(std::make_pair(input[i], input[i + 1]));
-		}
 		else
 			pairs.push_back(std::make_pair(input[i + 1], input[i]));
 		nbrComp += 1;
 	}
-	if (input.size() % 2 != 0) {
+	if (input.size() % 2 != 0) 
 		leftover = input[input.size() - 1];
-	}
 	std::vector<int> mainChain;
 	std::vector<int> pend;
 	for (std::size_t j = 0;j < pairs.size(); ++j) {
 		mainChain.push_back(pairs[j].first);
 		pend.push_back(pairs[j].second);
-	}	
+	}
 	mergeInsertSort(mainChain);
 	std::vector<int> order = jacobsthalIndices(pend.size());
-	for (size_t i = 0; i < order.size(); ++i) {
-		std::cout << order[i] << " ";
+	for (std::size_t j = 0; j < order.size(); ++j) {
+		if (order[j] < static_cast<int>(pend.size()))
+			binaryInsert(mainChain, pend[order[j]], mainChain.size());
 	}
-	std::cout << std::endl;
-	for (std::size_t j = 0; j < order.size(); ++j)
-		binaryInsert(mainChain, pend[order[j]], mainChain.size());
 	if (leftover != -1)
 		binaryInsert(mainChain, leftover, mainChain.size());
 	input = mainChain;
