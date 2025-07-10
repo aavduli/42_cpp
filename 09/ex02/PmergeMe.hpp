@@ -12,16 +12,25 @@
 class PmergeMe {
 private:
 	size_t	nbrComp;
+	size_t deqComp;
 public:
 	PmergeMe();
 	PmergeMe(const PmergeMe &other);
 	~PmergeMe();
 
 	PmergeMe &operator=(const PmergeMe &rhs);
-private:
+
 	std::vector<int> jacobsthalIndices(int size);
+
+	//vector version
 	void binaryInsert(std::vector<int>& vec, int value, int rightLimit);
 	void mergeInsertSort(std::vector<int>& input);
+
+	//deque version
+	void binaryInsert(std::deque<int>& deq, int value, int rightLimit);
+	void mergeInsertSort(std::deque<int>& input);
+
+	int getNbrComp();
 };
 
 #endif
