@@ -2,27 +2,26 @@
 
 PmergeMe::PmergeMe() : nbrComp(0) {}
 
-// PmergeMe::PmergeMe(const PmergeMe &other) : {}
+PmergeMe::PmergeMe(const PmergeMe &other) {(void)other;}
 
 PmergeMe::~PmergeMe() {}
 
-PmergeMe &PmergeMe::operator=(const PmergeMe &rhs) {
-	if (this != &rhs) {}
-	return *this;
-}
+PmergeMe &PmergeMe::operator=(const PmergeMe &rhs) {(void)rhs;}
 
-void	PmergeMe::binaryInsert(std::vector<int>& vec, int value, std::size_t end) {
-	std::size_t low = 0, high = end;
-	while (low < high) {
-		std::size_t mid = (low + high) / 2;
-		nbrComp += 1; 
+void	PmergeMe::binaryInsert(std::vector<int>& vec, int value, int rightLimit) {
+	int left = 0;
+	std::vector<int>::iterator it = std::find(vec.begin(), vec.end(), rightLimit);
+	int right = std::distance(vec.begin(), it);
+	while (left < right) {
+		std::size_t mid = (left + right) / 2;
 		if (vec[mid] < value) {
-			low = mid + 1;
+			left = mid + 1;
 		}
 		else
-			high = mid;
+			right = mid;
+		nbrComp++;
 	}
-	vec.insert(vec.begin() + low, value);
+	vec.insert(vec.begin() + left, value);
 }
 
 std::vector<int> PmergeMe::jacobsthalIndices(int size) {
@@ -69,8 +68,9 @@ void	PmergeMe::mergeInsertSort(std::vector<int>& input) {
 	int	leftover = -1;
 	std::size_t i;
 	for (i = 0; i + 1 < input.size(); i += 2) {
-		if (input[i] > input[i + 1])
+		if (input[i] > input[i + 1]) {
 			pairs.push_back(std::make_pair(input[i], input[i + 1]));
+		}
 		else
 			pairs.push_back(std::make_pair(input[i + 1], input[i]));
 		nbrComp += 1;
@@ -86,8 +86,11 @@ void	PmergeMe::mergeInsertSort(std::vector<int>& input) {
 	mergeInsertSort(mainChain);
 	std::vector<int> order = jacobsthalIndices(pend.size());
 	for (std::size_t j = 0; j < order.size(); ++j) {
-		if (order[j] < static_cast<int>(pend.size()))
-			binaryInsert(mainChain, pend[order[j]], mainChain.size());
+		if (order[j] < static_cast<int>(pend.size())) {
+			int loser = pend[order[j]];
+			int winner = pairs[j].first;
+			binaryInsert(mainChain, loser, winner);
+		}
 	}
 	if (leftover != -1)
 		binaryInsert(mainChain, leftover, mainChain.size());

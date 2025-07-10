@@ -10,17 +10,18 @@
 # include <algorithm>
 
 class PmergeMe {
+private:
+	size_t	nbrComp;
 public:
 	PmergeMe();
 	PmergeMe(const PmergeMe &other);
 	~PmergeMe();
 
 	PmergeMe &operator=(const PmergeMe &rhs);
-
-	size_t	nbrComp;
-	void mergeInsertSort(std::vector<int>& input);
-	void binaryInsert(std::vector<int>& vec, int value, std::size_t end);
+private:
 	std::vector<int> jacobsthalIndices(int size);
+	void binaryInsert(std::vector<int>& vec, int value, int rightLimit);
+	void mergeInsertSort(std::vector<int>& input);
 };
 
 #endif
