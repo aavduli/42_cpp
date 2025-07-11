@@ -8,6 +8,7 @@
 # include <deque>
 # include <cstdlib>
 # include <algorithm>
+# include <climits>
 
 class PmergeMe {
 private:
