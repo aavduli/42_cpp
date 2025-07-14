@@ -3,6 +3,7 @@
 # include <iostream>
 # include <string>
 # include <fstream>
+# include <stack>
 
 template <typename T>
 class MutantStack : public std::stack<T> {

@@ -7,7 +7,7 @@ int main() {
 	vec.push_back(30);
 
 	try {
-		std::vector<int>::iterator  it = easyfind(vec, 40);
+		std::vector<int>::iterator  it = easyfind(vec, 10);
 		std::cout << "Found: " << *it << std::endl;
 	} catch (std::exception &e) {
 		std::cout << "Exception: " << e.what() << std::endl;

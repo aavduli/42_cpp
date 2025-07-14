@@ -7,7 +7,7 @@ int main() {
 	Span a(10);
 	try 
 	{
-		for (int i = 0; i <= 10; ++i) {
+		for (int i = 0; i < 10; ++i) {
 			a.addNumber(rand()%10);
 			std::cout << "Numbers added: " << a.getNumbers(i) << std::endl;
 		}
