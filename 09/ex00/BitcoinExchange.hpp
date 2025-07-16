@@ -9,6 +9,8 @@
 # include <map>
 # include <cstdlib>
 # include <limits>
+# include <cctype>
+# include <iomanip>
 
 class BitcoinExchange {
 private:
@@ -22,7 +24,7 @@ public:
 	void loadDatabase();
 	void processInput(const std::string& filename);
 
-	bool validNbr(float value);
+	bool validNbr(std::string value);
 	bool validDate(std::string date);
 
 };

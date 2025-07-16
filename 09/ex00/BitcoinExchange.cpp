@@ -11,16 +11,28 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &rhs)  {
 		this->_rates.clear();
 		this->_rates = rhs._rates;
 	}
+	return *this;
 }
 
-bool BitcoinExchange::validNbr(float value) {
-	if (value < 0.0f) {
-		std::cout << "Error: not a positiv number" << std::endl;
+bool BitcoinExchange::validNbr(std::string value) {
+	if (value[0] == '-') {
+		std::cerr << "Error: not a positiv number: " << value << std::endl;
 		return false;
 	}
-	if (value > 1000.0f) {
-		std::cout << "Error: too large number: " << value << std::endl;
+	else if (value.size() > 6) {
+		std::cerr << "Error: too large number: " << value << std::endl;
 		return false;
+	}
+	else {
+		for (size_t i = 0; i < value.size(); ++i) {
+			if (std::isdigit(value[i])) {
+				return true;
+			}
+			else {
+				std::cerr << "Error: not a number: " << value << std::endl;
+				return false;
+			}
+		}
 	}
 	return true;
 }
@@ -73,9 +85,12 @@ void BitcoinExchange::loadDatabase() {
 }
 
 void BitcoinExchange::processInput(const std::string& filename) {
+	std::cout.precision(2);
+	std::cout << std::fixed;
 	std::ifstream file(filename.c_str());
 	if (!file.is_open()) {
 		std::cerr << "failed to open input file\n" << std::endl;
+		return ;
 	}
 	std::string line;
 	std::getline(file, line);
@@ -85,13 +100,13 @@ void BitcoinExchange::processInput(const std::string& filename) {
 		std::string valueStr;
 		float value;
 		if (std::getline(ss, date, '|') && (std::getline(ss, valueStr))) {
-			while (!date.empty() && date[date.size() - 1] == ' ') 
+			while (!date.empty() && date[date.size() - 1] == ' ')
 				date.erase(date.size() - 1);
 			while (!valueStr.empty() && valueStr[0] == ' ')
 				valueStr.erase(0, 1);
 		}
 		value = std::atof(valueStr.c_str());
-		if (validNbr(value) && validDate(date)) {
+		if (validNbr(valueStr.c_str()) && validDate(date)) {
 			try {
 				std::map<std::string, float>::iterator it = _rates.find(date);
 				if (it != _rates.end()) {
