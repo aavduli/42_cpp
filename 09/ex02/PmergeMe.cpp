@@ -61,6 +61,7 @@ std::vector<int> PmergeMe::jacobsthalIndices(int size) {
 		if (!found)
 			result.push_back(i);
 	}
+	std::cout << std::endl;
 	return result;
 }
 
@@ -91,7 +92,7 @@ void	PmergeMe::mergeInsertSort(std::vector<int>& input) {
 	for (std::size_t j = 0; j < order.size(); ++j) {
 		if (order[j] < static_cast<int>(pend.size())) {
 			int loser = pend[order[j]];
-			int winner = pairs[j].first;
+			int winner = pairs[order[j]].first;
 			binaryInsert(mainChain, loser, winner);
 		}
 	}
@@ -142,10 +143,10 @@ void	PmergeMe::mergeInsertSort(std::deque<int>& input) {
 	}
 	mergeInsertSort(mainChain);
 	std::vector<int> order = jacobsthalIndices(pend.size());
-	for (std::size_t j = 0; j < order.size(); ++j) {
+	for (std::size_t j = 0; j < pend.size(); ++j) {
 		if (order[j] < static_cast<int>(pend.size())) {
 			int loser = pend[order[j]];
-			int winner = pairs[j].first;
+			int winner = pairs[order[j]].first;
 			binaryInsert(mainChain, loser, winner);
 		}
 	}

@@ -2,7 +2,7 @@
 #include <sys/time.h>
 
 static long getTimeMs() {
-	struct timeval tv;
+    struct timeval tv;
 	gettimeofday(&tv, 0);
 	return tv.tv_sec * 1000000 + tv.tv_usec;
 }
